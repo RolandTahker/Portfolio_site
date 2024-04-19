@@ -1,0 +1,130 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: black; /* Set background color for the entire document */
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Change height to min-height */
+}
+
+.menuOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed; /* Change position to fixed */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10; /* Increase z-index to ensure it's above other elements */
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.menuOptions .menuItem {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  position: relative;
+  transition: transform 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menuOptions .menuItem:hover {
+  transform: scale(1.1);
+}
+
+.menuOptions .menuItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.menuOptions .menuItem:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.logo img {
+  width: 80px;
+  margin-left: 15px;
+  height: auto;
+}
+
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 80px; /* Adjust top padding to avoid overlap with menu */
+}
+
+.portfolio-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: calc(100% - 40px);
+  margin-bottom: 40px;
+}
+
+.portfolio-item {
+  width: calc(24% - 20px);
+  margin: 20px 0;
+}
+
+.portfolio-item img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item img:hover {
+  transform: scale(1.1);
+}
+
+
+/* Logo responsiveness for smaller screens */
+@media screen and (max-width: 768px) {
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: -10px; /* Adjust the left position for smaller screens */
+    z-index: 2; /* Ensure the logo is above other content */
+  }
+
+  .logo img {
+    width: 50px; /* Adjust the width of the logo for smaller screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+/* Images arrangement in a 3 by 3 grid for smaller screens */
+@media screen and (max-width: 480px) {
+  .portfolio-item {
+    width: calc(33.33% - 20px); /* Adjust for spacing */
+    margin: 10px; /* Add margin for spacing */
+  }
+}

@@ -1,0 +1,297 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url('pictures/pexels-lennart-wittstock-316681.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menuOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.menuOptions .menuItem {
+  color: white;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 10px;
+  position: relative; /* Needed for the underline */
+  transition: transform 0.3s ease, border-bottom 0.3s ease; /* Add transition for smoother animation */
+}
+
+.menuOptions .menuItem:hover {
+  transform: scale(1.1); /* Scale up a little on hover */
+}
+
+.menuOptions .menuItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0); /* Initially hide the underline */
+  transform-origin: bottom right; /* Animation origin */
+  transition: transform 0.3s ease; /* Add transition for smoother animation */
+}
+
+.menuOptions .menuItem:hover::after {
+  transform: scaleX(1); /* Expand the underline on hover */
+  transform-origin: bottom left; /* Animation origin */
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Adjusted to start from the left side */
+  height: 100%;
+  margin-left: -1000px; /* Added margin to move it away from the left edge */
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif; /* Added font family */
+  color: white;
+}
+
+
+.contact-form {
+  width: 300px;
+  padding: 100px;
+  background-color: rgba(0, 255, 255, 0.678); /* Changed background color with opacity */
+  border-radius: 20px;
+  margin-right: 50px;
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.icons {
+  margin-top: 20px;
+  display: flex;
+}
+
+.icons a {
+  margin-right: 10px;
+}
+
+.icons img {
+  width: 30px;
+  height: 30px;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2; /* Ensure the logo is above other content */
+}
+
+.logo img {
+  width: 80px; /* Adjust the width of the logo */
+  margin-left: 15px;
+  height: auto;
+}
+
+/* Your existing CSS */
+
+/* Additional styles for animations */
+.input-field {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.input-field:hover {
+  transform: translateY(-5px); /* Move input field up on hover */
+}
+
+.submit-btn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+.contact-form {
+  width: 300px;
+  padding: 100px;
+  background-color: rgba(0, 255, 255, 0.151);
+  border-radius: 20px;
+  margin-right: 50px;
+  animation: pulse 2s infinite alternate; /* Apply pulse animation */
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.contact-form form {
+  animation: fadeIn 1s ease; /* Apply fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.icons {
+  margin-top: 20px;
+  display: flex;
+  animation: slideIn 1s ease; /* Apply slide-in animation */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Existing styles */
+
+/* Adjusted styles for image container */
+.image-container {
+  position: absolute;
+  top: 16%; /* Adjusted to move the image container up */
+  right: 8%;
+  width: 450px;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); border-color: rgb(255, 255, 255); }
+  25% { transform: translateX(-500px); border-color: #00ffff; }
+  50% { transform: translateX(5px); border-color: rgb(255, 255, 255); }
+  75% { transform: translateX(-500px); border-color: #00ffff; }
+  100% { transform: translateX(0); border-color: rgb(255, 255, 255); }
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  border: 3px solid red; /* Initial border color */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  animation: shake 30s infinite; /* Apply the shake animation */
+  margin-top: 1px;
+}
+
+
+/* Adjusted styles for logo in responsiveness mode */
+@media only screen and (max-width: 768px) {
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: -10px; /* Adjust the left position for smaller screens */
+    z-index: 2; /* Ensure the logo is above other content */
+  }
+
+  .logo img {
+    width: 50px; /* Adjust the width of the logo for smaller screens */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .image-container {
+    width: 50%; /* Adjust width to fit smaller screens */
+    margin-left: 5%; /* Center horizontally */
+  }
+
+  .image-container img {
+    border-color: white !important; /* Set border color to white */
+    animation: none;
+    margin-left: -35%; /* Center horizontally */
+    margin-top: -30px;
+  }
+
+  .contact {
+    display: block; /* Display the contact section */
+    margin-top: 20px; /* Add some space between image container and contact form */
+    width: 70%; /* Adjust width to fit smaller screens */
+    margin: 0 auto; /* Center horizontally */
+  }
+
+  .contact-form {
+    width: 100%; /* Adjust width to fit smaller screens */
+    padding: 20px; /* Adjust padding */
+    margin-top: 465px; /* Add space between image container and contact form */
+    margin-left: -20px;
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
